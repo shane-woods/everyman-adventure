@@ -6,29 +6,41 @@ import strengthsvg from "../public/svgs/muscle-svgrepo-com.svg";
 
 const scenesData = [
   {
-    characterSrc: godsvg,
-    name: "God",
-    text: `Hello I am God!`,
+    characters: [
+      {
+        characterSrc: godsvg,
+        name: "God",
+        prompt: "",
+      },
+      {
+        characterSrc: deathsvg,
+        name: "Death",
+        text: "",
+      },
+    ],
   },
   {
-    characterSrc: deathsvg,
-    name: "Death",
-    text: `Hello I am Death!`,
+    characters: [
+      {
+        characterSrc: brainsvg,
+        name: "Knowledge",
+        text: "Hello I am Knowledge!",
+      },
+      {
+        characterSrc: gooddeedssvg,
+        name: "Good Deeds",
+        text: "Hello I am Good Deeds!",
+      },
+    ],
   },
   {
-    characterSrc: brainsvg,
-    name: "Knowledge",
-    text: "Hello I am Knowledge!",
-  },
-  {
-    characterSrc: gooddeedssvg,
-    name: "Good Deeds",
-    text: `Hello I am Good Deeds!`,
-  },
-  {
-    characterSrc: strengthsvg,
-    name: "Strength",
-    text: `Hello I am Strength!`,
+    characters: [
+      {
+        characterSrc: strengthsvg,
+        name: "Strength",
+        text: "Hello I am Strength!",
+      },
+    ],
   },
 ];
 
