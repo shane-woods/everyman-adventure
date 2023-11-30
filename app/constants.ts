@@ -4,30 +4,40 @@ import brainsvg from "../public/svgs/brain-svgrepo-com.svg";
 import gooddeedssvg from "../public/svgs/handshake-skin-1-svgrepo-com.svg";
 import strengthsvg from "../public/svgs/muscle-svgrepo-com.svg";
 
-const scenesData = [
+type Character = {
+  src: string;
+  name: string;
+  text: string;
+};
+
+type Scene = {
+  characters: Character[];
+};
+
+const sceneData: Scene[] = [
   {
     characters: [
       {
-        characterSrc: godsvg,
+        src: godsvg,
         name: "God",
-        prompt: "",
+        text: "Hello I am god",
       },
       {
-        characterSrc: deathsvg,
+        src: deathsvg,
         name: "Death",
-        text: "",
+        text: "Hello I am death",
       },
     ],
   },
   {
     characters: [
       {
-        characterSrc: brainsvg,
+        src: brainsvg,
         name: "Knowledge",
         text: "Hello I am Knowledge!",
       },
       {
-        characterSrc: gooddeedssvg,
+        src: gooddeedssvg,
         name: "Good Deeds",
         text: "Hello I am Good Deeds!",
       },
@@ -36,7 +46,7 @@ const scenesData = [
   {
     characters: [
       {
-        characterSrc: strengthsvg,
+        src: strengthsvg,
         name: "Strength",
         text: "Hello I am Strength!",
       },
@@ -44,4 +54,5 @@ const scenesData = [
   },
 ];
 
-export default scenesData;
+const numScenes = sceneData.length;
+export { sceneData, numScenes };
