@@ -3,14 +3,14 @@ import { animated } from "@react-spring/web";
 import Image from "next/image";
 
 type Character = {
-  key: string;
+  id: string;
   src: string;
   name: string;
 };
 
 const Character = (character: Character) => {
   return (
-    <div key={character.key} className="flex flex-col mb-10 items-center">
+    <div key={character.id} className="flex flex-col mb-10 items-center">
       <Image
         alt="image of a character"
         src={character.src}

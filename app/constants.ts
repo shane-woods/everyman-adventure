@@ -3,15 +3,12 @@ import deathsvg from "../public/svgs/death-grim-reaper-svgrepo-com.svg";
 import brainsvg from "../public/svgs/brain-svgrepo-com.svg";
 import gooddeedssvg from "../public/svgs/handshake-skin-1-svgrepo-com.svg";
 import strengthsvg from "../public/svgs/muscle-svgrepo-com.svg";
-
-type Character = {
-  src: string;
-  name: string;
-  text: string;
-};
+import Character from "./types";
 
 type Scene = {
   characters: Character[];
+  isChoice: boolean;
+  choiceIndex: number;
 };
 
 const sceneData: Scene[] = [
@@ -28,6 +25,8 @@ const sceneData: Scene[] = [
         text: "Hello I am death",
       },
     ],
+    isChoice: false,
+    choiceIndex: 0,
   },
   {
     characters: [
@@ -42,6 +41,8 @@ const sceneData: Scene[] = [
         text: "Hello I am Good Deeds!",
       },
     ],
+    isChoice: false,
+    choiceIndex: 0,
   },
   {
     characters: [
@@ -51,6 +52,8 @@ const sceneData: Scene[] = [
         text: "Hello I am Strength!",
       },
     ],
+    isChoice: false,
+    choiceIndex: 0,
   },
 ];
 

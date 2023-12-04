@@ -2,49 +2,53 @@
 import React from "react";
 import { useState } from "react";
 import Scene from "./components/scene";
-import { numScenes } from "./constants";
+import { sceneData, numScenes } from "./constants";
+import CharacterType from "./types";
+import CharacterList from "./components/characterlist";
+import Button from "./components/button";
 
 export default function Home() {
   const [sceneIndex, setSceneIndex] = useState<number>(0);
+  const [characterList, setCharacterList] = useState<CharacterType[]>([]);
 
-  function handleTakeCharacter() {
+  function handleTakeCharacter(take: boolean) {
+    const choiceIndex: number = sceneData[sceneIndex].choiceIndex;
+    if (take) {
+      setCharacterList([
+        ...characterList,
+        sceneData[sceneIndex].characters[choiceIndex],
+      ]);
+    }
     setSceneIndex((cur) => (cur + 1) % numScenes);
   }
 
   function handleReset() {
+    setCharacterList([]);
     setSceneIndex(0);
   }
 
   return (
     <div className="flex flex-col justify-evenly max-h-screen">
       <div className="flex justify-center items-center">
-        <h1 className="text-5xl italic">"Everyman"</h1>
+        <h1 className="text-3xl italic">"Everyman"</h1>
       </div>
       <div
         key={sceneIndex}
         className="flex flex-col justify-center gap-5 px-24 items-center"
       >
-        <Scene sceneIndex={sceneIndex} />
+        <Scene index={sceneIndex} />
         <div>
-          <button
-            onClick={handleTakeCharacter}
-            className="border-2 rounded-lg py-2 px-10 text-xl"
-          >
-            Take Me with you
-          </button>
-          <button
-            onClick={handleTakeCharacter}
-            className="border-2 rounded-lg py-2 px-10 text-xl"
-          >
-            Leave me behind
-          </button>
+          <Button
+            onClick={() => handleTakeCharacter(true)}
+            label="Take me with you"
+          />
+          <Button
+            onClick={() => handleTakeCharacter(false)}
+            label="Leave me behind"
+          />
         </div>
-        <button
-          onClick={handleReset}
-          className="border-2 rounded-lg py-2 px-10 text-xl"
-        >
-          Restart
-        </button>
+        <Button onClick={handleReset} label="Restart" />
+        <CharacterList list={characterList} />
       </div>
     </div>
   );
