@@ -60,7 +60,7 @@ const sceneData: Scene[] = [
   },
   {
     characters: [Strength],
-    isChoice: false,
+    isChoice: true,
     choiceIndex: 0,
   },
 ];

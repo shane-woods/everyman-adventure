@@ -31,7 +31,7 @@ export default function Home() {
     setSceneIndex(0);
   }
 
-  console.log(sceneIndex);
+  console.log("scene" + sceneIndex);
 
   return (
     <div className="flex flex-col justify-evenly max-h-screen">
@@ -42,7 +42,7 @@ export default function Home() {
         key={sceneIndex}
         className="flex flex-col justify-center gap-5 px-24 items-center"
       >
-        <Scene index={sceneIndex} handleNextScene={() => handleNextScene} />
+        <Scene index={sceneIndex} nextScene={handleNextScene} />
         {sceneData[sceneIndex].isChoice ? (
           <div>
             <Button

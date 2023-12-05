@@ -15,7 +15,6 @@ const CharacterList = ({ list }: { list: CharacterType[] }) => {
               src={character.src}
               name={character.name}
               lines={[]}
-              handleNextScene={null}
             />
           );
         })}

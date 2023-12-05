@@ -9,25 +9,29 @@ type Character = {
   src: string;
   name: string;
   lines: string[];
-  handleNextScene: () => void;
+  nextScene?: () => void;
 };
 
 const Character = (character: Character) => {
   const [lineIndex, setLineIndex] = useState<number>(0);
-  console.log(lineIndex);
+  console.log("line index " + lineIndex);
+  console.log("character's lines length " + character.lines.length);
   useEffect(() => {
-    if (lineIndex === character.lines.length - 1) {
-      console.log("gets here?");
-      character.handleNextScene();
-      return () => clearInterval(intervalId);
-    }
-
     const intervalId = setInterval(() => {
+      if (lineIndex === character.lines.length && character.nextScene) {
+        // Invoke the callback when reaching the last line
+        console.log("GETS HERE");
+        character.nextScene();
+      }
       setLineIndex((index) => index + 1);
-    }, 2000);
+    }, 200000);
 
     return () => clearInterval(intervalId);
-  }, [character.lines, character.index]);
+  }, [lineIndex]);
+
+  if (lineIndex === character.lines.length - 1) {
+    console.log("gets here?");
+  }
 
   return (
     <div key={character.id} className="flex flex-col mb-10 items-center">

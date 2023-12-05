@@ -4,7 +4,7 @@ import { sceneData } from "../constants";
 
 type SceneProps = {
   index: number;
-  handleNextScene: () => void;
+  nextScene?: () => void;
 };
 
 const Scene = (scene: SceneProps) => {
@@ -21,7 +21,7 @@ const Scene = (scene: SceneProps) => {
             src={character.src}
             name={character.name}
             lines={character.lines}
-            handleNextScene={() => scene.handleNextScene}
+            nextScene={scene.nextScene}
           />
         </div>
       ))}

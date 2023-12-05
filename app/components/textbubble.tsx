@@ -7,8 +7,8 @@ type TextProp = {
 
 const TextBubble = (t: TextProp) => {
   return (
-    <div key={t.key} className="">
-      <p>{t.text}</p>
+    <div key={t.key} className=" flex overflow-hidden max-w-sm">
+      <p className="text-center">{t.text}</p>
     </div>
   );
 };
