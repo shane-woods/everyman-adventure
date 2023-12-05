@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Character from "./character";
-import TextBubble from "./textbubble";
 import { sceneData } from "../constants";
 
 type SceneProps = {
   index: number;
+  handleNextScene: () => void;
 };
 
 const Scene = (scene: SceneProps) => {
@@ -17,10 +17,12 @@ const Scene = (scene: SceneProps) => {
         >
           <Character
             id={characterIndex.toString()}
+            index={characterIndex}
             src={character.src}
             name={character.name}
+            lines={character.lines}
+            handleNextScene={() => scene.handleNextScene}
           />
-          <TextBubble key={characterIndex.toString()} text={character.text} />
         </div>
       ))}
     </div>

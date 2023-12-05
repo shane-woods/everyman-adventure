@@ -1,7 +1,7 @@
 type CharacterType = {
   src: string;
   name: string;
-  text: string;
+  lines: string[];
 };
 
 export default CharacterType;

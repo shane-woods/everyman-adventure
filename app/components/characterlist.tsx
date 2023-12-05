@@ -11,8 +11,11 @@ const CharacterList = ({ list }: { list: CharacterType[] }) => {
           return (
             <Character
               id={characterIndex.toString()}
+              index={characterIndex}
               src={character.src}
               name={character.name}
+              lines={[]}
+              handleNextScene={null}
             />
           );
         })}

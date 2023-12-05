@@ -22,10 +22,16 @@ export default function Home() {
     setSceneIndex((cur) => (cur + 1) % numScenes);
   }
 
+  function handleNextScene() {
+    setSceneIndex((cur) => (cur + 1) % numScenes);
+  }
+
   function handleReset() {
     setCharacterList([]);
     setSceneIndex(0);
   }
+
+  console.log(sceneIndex);
 
   return (
     <div className="flex flex-col justify-evenly max-h-screen">
@@ -36,19 +42,21 @@ export default function Home() {
         key={sceneIndex}
         className="flex flex-col justify-center gap-5 px-24 items-center"
       >
-        <Scene index={sceneIndex} />
-        <div>
-          <Button
-            onClick={() => handleTakeCharacter(true)}
-            label="Take me with you"
-          />
-          <Button
-            onClick={() => handleTakeCharacter(false)}
-            label="Leave me behind"
-          />
-        </div>
+        <Scene index={sceneIndex} handleNextScene={() => handleNextScene} />
+        {sceneData[sceneIndex].isChoice ? (
+          <div>
+            <Button
+              onClick={() => handleTakeCharacter(true)}
+              label="Take me with you"
+            />
+            <Button
+              onClick={() => handleTakeCharacter(false)}
+              label="Leave me behind"
+            />
+          </div>
+        ) : null}
         <Button onClick={handleReset} label="Restart" />
-        <CharacterList list={characterList} />
+        {/* <CharacterList list={characterList} /> */}
       </div>
     </div>
   );
