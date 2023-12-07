@@ -28,7 +28,7 @@ const Scene = (scene: SceneProps) => {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col min-w-full items-center">
       <div className="flex flex-row justify-center gap-24 mb-5 items-center">
         {sceneData[scene.index].characters.map((character, characterIndex) => (
           <div

@@ -79,7 +79,7 @@ export default function Home() {
   }
 
   return (
-    <div className="flex flex-col justify-evenly max-h-screen">
+    <div className="flex flex-col justify-evenly min-w-[750px] max-h-screen">
       <div className="flex justify-center items-center">
         <h1 className="text-3xl italic">"Everyman"</h1>
       </div>
