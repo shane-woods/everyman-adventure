@@ -6,7 +6,7 @@ const CharacterList = ({ list }: { list: CharacterType[] }) => {
   return (
     <div className="flex flex-col items-center">
       <p>Characters with you</p>
-      <div className="flex flex-row items-center justify-center">
+      <div className="flex flex-row items-center gap-5 justify-center">
         {list.map((character, characterIndex) => {
           return (
             <Character
@@ -14,7 +14,7 @@ const CharacterList = ({ list }: { list: CharacterType[] }) => {
               index={characterIndex}
               src={character.src}
               name={character.name}
-              lines={[]}
+              line="NOLINE"
             />
           );
         })}
